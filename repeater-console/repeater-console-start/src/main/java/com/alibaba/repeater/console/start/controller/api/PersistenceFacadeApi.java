@@ -38,6 +38,7 @@ public class PersistenceFacadeApi {
         ReplayParams params = ReplayParams.builder().repeatId(request.getHeader("RepeatId")).build();
         params.setAppName(appName);
         params.setTraceId(traceId);
+        params.setIp(request.getLocalAddr());
         return replayService.replay(params);
     }
 
